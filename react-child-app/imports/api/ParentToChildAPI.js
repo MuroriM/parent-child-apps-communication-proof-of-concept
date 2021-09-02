@@ -15,7 +15,7 @@ export const ParentToChildAPI = () => {
     window.addEventListener("message", MessageHandler, false);
   });
 
-  //function that displays message
+  //function that displays message, takes in a "messageText" argument
   function displayMessage(args) {
     //sanity check
     console.log(
@@ -28,7 +28,7 @@ export const ParentToChildAPI = () => {
     }
   }
 
-  //function that alerts message
+  //function that alerts message, takes in a "messageText" argument
   function alertMessage(args) {
     //sanity check
     console.log(`alertMessage function triggered on child with args ${args}!`);

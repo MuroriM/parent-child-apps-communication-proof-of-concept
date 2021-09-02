@@ -2,7 +2,7 @@
 import { PARENT_URL, CHILD_URL } from "/public/constants";
 import { incomingMessageText, count } from "/imports/api/stores";
 
-//function that display message
+//function that displays message, takes in a "messageText" argument
 function displayMessage(args) {
   //sanity check
   console.log(`displayMessage function triggered on parent with args ${args}!`);
@@ -13,7 +13,7 @@ function displayMessage(args) {
   }
 }
 
-//function that alerts message
+//function that alerts message, takes in a "messageText" argument
 function alertMessage(args) {
   //sanity check
   console.log(`alertMessage function triggered on parent with args ${args}!`);
