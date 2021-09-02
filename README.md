@@ -8,6 +8,4 @@
 
 3. Once both apps have started, go to `localhost:5000` on your web browser.
 
-4. Send messages from the parent app to the child app using the outer "Send Message" form.
-
-5. Send messages from the child app to the parent app using the inner "Send Message" form, inside the iFrame.
+4. Try out sending messages to display or alert between the two apps. Try out modifying the count on either app from the other app.

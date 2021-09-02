@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { store, useGlobalState } from "state-pool";
+import React from "react";
+import { useGlobalState } from "state-pool";
 
 export const Counter = () => {
   const [count, setCount] = useGlobalState("count");
@@ -10,7 +10,6 @@ export const Counter = () => {
       <button
         onClick={() => {
           setCount(count + 1);
-          console.log(count);
         }}
       >
         +

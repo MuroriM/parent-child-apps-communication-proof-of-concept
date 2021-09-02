@@ -1,5 +1,5 @@
 <script>
-    import { iFrameLoaded } from "./stores"
+    import { iFrameLoaded } from "/imports/api/stores"
 
     const increment = () => {
         console.log('one increment trigger on parent')
@@ -23,7 +23,7 @@
 </script>
 
 <div>
-    <h3>Change count on child</h3>
-    <button on:click|preventDefault={increment}>+</button>
-    <button on:click|preventDefault={decrement}>-</button>
+    <h3>Change count on child app:</h3>
+    <button on:click={increment}>+</button>
+    <button on:click={decrement}>-</button>
 </div>

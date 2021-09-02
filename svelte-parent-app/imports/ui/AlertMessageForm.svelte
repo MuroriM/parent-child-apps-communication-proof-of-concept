@@ -1,5 +1,5 @@
 <script>
-    import { iFrameLoaded } from "./stores"
+    import { iFrameLoaded } from "../api/stores"
     
     $: outgoingMessageText = "";
 

@@ -1,18 +1,27 @@
 import React, { useState } from "react";
+import { PARENT_URL } from "/public/constants";
 
-export const Form = () => {
+export const DisplayMessageForm = () => {
   const [outgoingMessageText, setOutgoingMessageText] = useState("");
 
   //event handler to send message to parent app
   const handleSubmit = (event) => {
     event.preventDefault();
-    window.parent.postMessage(outgoingMessageText, "http://localhost:5000/");
+    window.parent.postMessage(
+      {
+        function: "displayMessage",
+        args: { messageText: outgoingMessageText },
+      },
+      PARENT_URL
+    );
   };
 
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <label>Send a message to the parent app: </label>
+        <h3>
+          <label>Send a message to display on the parent app: </label>
+        </h3>
         <br />
         <input
           type="text"

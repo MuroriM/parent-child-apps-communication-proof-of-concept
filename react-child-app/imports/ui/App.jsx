@@ -1,10 +1,14 @@
 import React, { useEffect } from "react";
-import { ParentToChildAPI } from "../api/ParentToChildAPI";
-import { Message } from "./Message";
-import { Form } from "./Form";
-import { Counter } from "./Counter";
+import { ParentToChildAPI } from "/imports/api/ParentToChildAPI";
+import { Message } from "/imports/ui/Message";
+import { DisplayMessageForm } from "/imports/ui/DisplayMessageForm";
+import { AlertMessageForm } from "/imports/ui/AlertMessageForm";
+import { Counter } from "/imports/ui/Counter";
+import { ParentCounterButtons } from "/imports/ui/ParentCounterButtons";
+import "/imports/api/stores";
 
 export const App = () => {
+  //verify that child app has loaded
   useEffect(() => {
     console.log("child loaded, logging from child itself!");
   });
@@ -15,7 +19,9 @@ export const App = () => {
       <h1> React Child App</h1>
       <Message />
       <Counter />
-      <Form />
+      <DisplayMessageForm />
+      <AlertMessageForm />
+      <ParentCounterButtons />
     </div>
   );
 };

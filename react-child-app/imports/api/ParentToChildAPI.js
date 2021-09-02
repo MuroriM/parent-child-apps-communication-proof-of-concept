@@ -1,10 +1,6 @@
 import { PARENT_URL, CHILD_URL } from "/public/constants";
-import { store, useGlobalState } from "state-pool";
-import React, { useState, useEffect } from "react";
-
-//Global state variables
-store.setState("count", 0);
-store.setState("incomingMessageText", "");
+import { useGlobalState } from "state-pool";
+import { useState, useEffect } from "react";
 
 export const ParentToChildAPI = () => {
   //getters and setters for reactive vars
@@ -14,7 +10,7 @@ export const ParentToChildAPI = () => {
   const [count, setCount] = useGlobalState("count");
   const [state, setState] = useState(0); //will be used to force update
 
-  //verify that component has loaded (for debugging purposes)
+  //add message event listener
   useEffect(() => {
     window.addEventListener("message", MessageHandler, false);
   });
@@ -28,7 +24,6 @@ export const ParentToChildAPI = () => {
 
     //check messageText is string
     if (typeof args.messageText === "string") {
-      //check message is actually different before calling this
       setIncomingMessageText(args.messageText);
     }
   }
@@ -46,14 +41,13 @@ export const ParentToChildAPI = () => {
 
   //function that increments count
   const incrementCount = () => {
-    console.log("increment function triggered on child!");
+    console.log("incrementCount function triggered on child!");
     setCount(count + 1);
-    console.log(incomingMessageText);
   };
 
   // //function that decrements count
   function decrementCount() {
-    console.log("decrement function triggered on child!");
+    console.log("decrementCount function triggered on child!");
     setCount(count - 1);
   }
 
