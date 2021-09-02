@@ -10,6 +10,7 @@ export const Counter = () => {
       <button
         onClick={() => {
           setCount(count + 1);
+          console.log(count);
         }}
       >
         +

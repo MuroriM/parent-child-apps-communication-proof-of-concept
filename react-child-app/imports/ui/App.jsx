@@ -5,27 +5,46 @@ import { Message } from "./Message";
 import { Form } from "./Form";
 import { Counter } from "./Counter";
 
+// function useForceUpdate() {
+//   const [value, setValue] = useState(0); // integer state
+//   return () => setValue((value) => value + 1); // update the state to force render
+// }
+
 store.setState("count", 0); // Create "count" global state
+store.setState("incomingMessageText", "");
 
 export const App = () => {
   //getters and setters for reactive vars
-  const [incomingMessageText, setIncomingMessageText] = useState("");
+  const [incomingMessageText, setIncomingMessageText] = useGlobalState(
+    "incomingMessageText"
+  );
+
   const [count, setCount] = useGlobalState("count");
+
+  const [state, setState] = useState(0);
 
   //verify that component has loaded (for debugging purposes)
   useEffect(() => {
     console.log("child loaded, logging from child itself!");
+    // window.removeEventListener("message", API, false);
     window.addEventListener("message", API, false);
-  });
+
+    // console.log(window.getEventListners());
+  }); //now this will only run once
 
   //function that displays message
   function displayMessage(args) {
     //sanity check
     console.log(`displayMessage function triggered with args ${args}!`);
 
-    //check args and setIncomingMessageText
-    if (typeof args.messageText === "string") {
+    //check messageText is string and different from current
+    if (
+      typeof args.messageText === "string" &&
+      args.messageText != incomingMessageText
+    ) {
+      //check message is actually different before calling this
       setIncomingMessageText(args.messageText);
+      console.log(incomingMessageText);
     }
   }
 
@@ -41,11 +60,12 @@ export const App = () => {
   }
 
   //function that increments count
-  function incrementCount() {
-    console.log("");
+  const incrementCount = () => {
+    console.log("here!");
     setCount(count + 1);
-    return;
-  }
+    console.log(count);
+    console.log(incomingMessageText);
+  };
 
   // //function that decrements count
   function decrementCount() {
@@ -55,6 +75,9 @@ export const App = () => {
 
   //API
   const API = (message) => {
+    //record state value upon entering API
+    let original_state = state;
+
     // function adapter
     const functionAdapter = {
       displayMessage,
@@ -68,6 +91,8 @@ export const App = () => {
       //remove event listener if API triggered, as it will be re-initiated on DOM reload
       //this is absolutely necessary or each successive call will create duplicates and crash the app
       window.removeEventListener("message", API, false);
+
+      //this also means that each API call must trigger exactly one state change
 
       //sanity check
       console.log("incoming message in child API from parent!");
@@ -89,6 +114,11 @@ export const App = () => {
       } else {
         throw new Error("invalid function name");
       }
+
+      // force re-render
+      setState(state + 1);
+
+      // console.log("forcing re-render!");
     } else if (message.origin === CHILD_URL) {
       //sanity check
       console.log("incoming message in child API from own URL");
@@ -96,15 +126,21 @@ export const App = () => {
       //permission denied
       throw new Error("invalid parent URL, permission denied");
     }
-    // window.removeEventListener("message", receiveMessage);
   };
 
   return (
     <div>
       <h1> React Child App</h1>
-      <Message message={incomingMessageText} />
+      <Message />
       <Counter />
       <Form />
+      <button
+        onClick={() => {
+          setCount(count + 1);
+        }}
+      >
+        +
+      </button>
     </div>
   );
 };

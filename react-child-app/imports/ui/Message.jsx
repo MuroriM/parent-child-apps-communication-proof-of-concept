@@ -1,12 +1,12 @@
 import React from "react";
+import { store, useGlobalState } from "state-pool";
 
-export const Message = (props) => {
-  messageText = props.message;
-
+export const Message = () => {
+  const [incomingMessageText] = useGlobalState("incomingMessageText");
   return (
     <div>
-      {messageText ? (
-        <h2>Message received: {messageText}</h2>
+      {incomingMessageText ? (
+        <h2>Message received: {incomingMessageText}</h2>
       ) : (
         <h2>Listening for messages...</h2>
       )}
