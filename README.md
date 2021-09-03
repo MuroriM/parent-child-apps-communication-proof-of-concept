@@ -1,6 +1,6 @@
-# Proof of Concept of Messages being Sent from Parent Svelte App to Child React App using postMessage, and vice-versa
+# Proof of Concept of Cross-App Communication between 1 Mongo database and 2 Meteor apps.
 
-This demo serves as a proof of concept that it is possible to have two meteor clients communicate with each other directly using postMessage. In this demo you can send messages between a parent app and a child app in an iFrame. These messages can be displayed on the other app, sent as alerts to the other app, or
+This demo serves as a proof of concept of the following: 1. It's possible to have two Meteor clients share the same database 2. It's possible for two Meteor clients to communicate with each other directly using postMessage.
 
 ## Usage
 
@@ -11,10 +11,18 @@ This demo serves as a proof of concept that it is possible to have two meteor cl
 3. Once both apps have started, go to `localhost:5000` on your web browser.
 
 4. Things to try out:
-   a. Sending messages to display or alert between the two apps.
-   b. Modifying the count on either app from the other app.
-   c. Deleting items from the shared foods collection on either app.
+   a. Sending messages to display or alert between the two apps (uses postMessage).
+   b. Modifying the count on either app from the other app (uses postMessage).
+   c. Deleting items from the shared foods collection on either app (uses the shared database).
 
-## API
+## APIs and postMessage
 
-The API for each app accepts an object inside the postMessage call. The object has the format `{functionName, {args}`, where `functionName` is the name of a function in the receiving API and `{args}` is an optional object which specifies the arguments to be run with that function, as key-value pairs.
+The APIs for direct communication between both clients take in an object inside the postMessage call. The object has the format `{functionName, {args}`, where `functionName` is the name of a function in the receiving API and `{args}` is an optional object which specifies the arguments to be run with that function, as key-value pairs.
+
+## Database
+
+Both the parent and child app use the same database to keep track of a collection `FoodColection`. You can see that if you delete an item of the collection on either app, the change will be immediately reflected on the other app.
+
+## Troubleshooting
+
+If you encounter errors on starting up either app, reset them using `meteor reset` and start them up again following the usage instructions.
