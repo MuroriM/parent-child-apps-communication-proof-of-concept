@@ -23,6 +23,8 @@ The APIs for direct communication between both clients take in an object inside 
 
 Both the parent and child app use the same database to keep track of a collection `FoodColection`. You can see that if you delete an item of the collection on either app, the change will be immediately reflected on the other app.
 
+To reset the database, shut down the parent app's server, run `meteor reset`, and start it up again with `meteor run --port 5000`.
+
 ## Troubleshooting
 
 If you encounter errors on starting up either app, reset both apps using `meteor reset` and start them up again following the usage instructions.
