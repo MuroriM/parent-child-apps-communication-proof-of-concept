@@ -1,5 +1,6 @@
 import { Meteor } from "meteor/meteor";
 import { FoodsCollection } from "/imports/db/FoodsCollection";
+import "/imports/api/foodsPublication";
 
 //function to insert foods into food collection
 const insertFood = (foodName) => {

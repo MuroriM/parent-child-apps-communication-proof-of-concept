@@ -2,8 +2,6 @@
     import { FoodsCollection } from "/imports/db/FoodsCollection";
     import Food from "/imports/ui/Food";
 
-    const subscriber = Meteor.subscribe('foods');
-
     let foods = [];
 
     $m: {

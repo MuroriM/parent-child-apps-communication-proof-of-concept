@@ -4,13 +4,16 @@ This demo serves as a proof of concept that it is possible to have two meteor cl
 
 ## Usage
 
-1. `cd` into `react-child-app` and run it on port 3000 with `meteor run --port 3000`
+1. `cd` into `svelte-parent-app` and run it on port 5000 with `meteor run --port 5000`
 
-2. `cd` into `svelte-parent-app` and run it on port 5000 with `meteor run --port 5000`
+2. `cd` into `react-child-app` and run it on port 3000 with `meteor run --port 3000`
 
 3. Once both apps have started, go to `localhost:5000` on your web browser.
 
-4. Try out sending messages to display or alert between the two apps. Try out modifying the count on either app from the other app.
+4. Things to try out:
+   a. Sending messages to display or alert between the two apps.
+   b. Modifying the count on either app from the other app.
+   c. Deleting items from the shared foods collection on either app.
 
 ## API
 
