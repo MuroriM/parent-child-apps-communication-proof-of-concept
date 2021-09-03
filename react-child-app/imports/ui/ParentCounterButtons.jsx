@@ -22,7 +22,7 @@ export const ParentCounterButtons = () => {
 
   return (
     <div>
-      <h3>Change count on parent app:</h3>
+      <h3>Change count on the parent app:</h3>
       <button onClick={increment}>+</button>
       <button onClick={decrement}>-</button>
     </div>

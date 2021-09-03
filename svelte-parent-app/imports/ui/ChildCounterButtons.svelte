@@ -23,7 +23,7 @@
 </script>
 
 <div>
-    <h3>Change count on child app:</h3>
+    <h3>Change count on the child app:</h3>
     <button on:click={increment}>+</button>
     <button on:click={decrement}>-</button>
 </div>

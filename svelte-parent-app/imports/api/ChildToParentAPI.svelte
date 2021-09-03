@@ -27,7 +27,6 @@ function alertMessage(args) {
 //function that increments count
 const incrementCount = () => {
   console.log("incrementCount function triggered on parent!");
-  console.log($count);
   count.set($count + 1);
 };
 
