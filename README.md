@@ -25,4 +25,4 @@ Both the parent and child app use the same database to keep track of a collectio
 
 ## Troubleshooting
 
-If you encounter errors on starting up either app, reset them using `meteor reset` and start them up again following the usage instructions.
+If you encounter errors on starting up either app, reset both apps using `meteor reset` and start them up again following the usage instructions.
