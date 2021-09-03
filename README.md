@@ -1,6 +1,10 @@
 # Proof of Concept of Cross-App Communication between 1 Mongo database and 2 Meteor apps.
 
-This demo serves as a proof of concept of the following: 1. It's possible to have two Meteor clients share the same database 2. It's possible for two Meteor clients to communicate with each other directly using postMessage.
+This demo serves as a proof of concept of the following:
+
+1. It's possible to have two Meteor clients share the same database
+
+2. It's possible for two Meteor clients to communicate with each other directly using postMessage.
 
 ## Usage
 
