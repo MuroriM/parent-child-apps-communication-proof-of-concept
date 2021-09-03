@@ -2,6 +2,7 @@
   //imports
   import Message from "/imports/ui/Message";
   import Counter from "/imports/ui/Counter";
+  import Foods from "/imports/ui/Foods";
   import DisplayMessageForm from "/imports/ui/DisplayMessageForm";
   import AlertMessageForm from "/imports/ui/AlertMessageForm";
   import ChildCounterButtons from "/imports/ui/ChildCounterButtons"
@@ -24,6 +25,7 @@
   <h1>Svelte Parent App</h1>
   <Message />
   <Counter />
+  <Foods />
   <DisplayMessageForm />
   <AlertMessageForm />
   <ChildCounterButtons />

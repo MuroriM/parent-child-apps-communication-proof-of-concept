@@ -1,6 +1,8 @@
 import { Meteor } from "meteor/meteor";
+import { FoodsCollection } from "/public/sharedCollections";
 
 Meteor.startup(() => {
+  // console.log(FoodsCollection.find({}).fetch());
   //CORS
   // WebApp.rawConnectHandlers.use(function (req, res, next) {
   //   res.setHeader("Access-Control-Allow-Origin", "http://localhost:5000/");
