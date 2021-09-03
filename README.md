@@ -10,7 +10,7 @@ This demo serves as a proof of concept of the following: 1. It's possible to hav
 
 3. Once both apps have started, go to `localhost:5000` on your web browser.
 
-4. Things to try out:
+4. Things to try out:  
    a. Sending messages to display or alert between the two apps (uses postMessage).  
    b. Modifying the count on either app from the other app (uses postMessage).  
    c. Deleting items from the shared foods collection on either app (uses the shared database).
